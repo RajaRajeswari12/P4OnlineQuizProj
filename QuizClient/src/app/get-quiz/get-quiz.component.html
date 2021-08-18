@@ -1,0 +1,19 @@
+<div class="container" style="margin-top: 70px;">
+<div class="card text-center m-3">
+    <h2 class="card-header">Get Quiz Details </h2>
+    <div class="card-body">
+<form (ngSubmit)='OnSubmit()' [formGroup]='quizForm' class="form-group">
+
+    <div class="form-group">
+        <label for='quizId'>Enter Quiz Id</label>
+        <input type="number"  formControlName='quizId'/>
+        <div *ngIf='quizId.invalid'>
+            <p> quiz Id can't be blank </p>
+        </div>
+    </div>
+    <div class="form-group"> <button  class="btn btn-success" [disabled]='quizForm.invalid'>Get Quiz Questions</button></div>
+    <div class="form-group" *ngIf='invalidQuizBoolean' style="color: red;"><h3>Invalid Quiz-Id Kindly Enter the correct Quiz-Id</h3></div>
+</form>
+</div>
+</div>
+</div>

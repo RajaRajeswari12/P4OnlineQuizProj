@@ -1,0 +1,88 @@
+<div class="container" style="margin-top: 70px;">
+    <div class="card text-center m-3">
+        <h2 class="card-header">ONLINE QUIZ</h2>
+        <div class="card-body">
+            <form (ngSubmit)="onQuizSubmit()">
+                <div *ngIf='enableResult'>
+                    You have scored {{marksScored}} out of {{TotalMarks}}
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Question</th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let question of pageOfItems ">
+                            <td>
+                                <h4 class="card-title">{{question.quizQuestion}}</h4>
+                            </td>
+                            <td>
+                                <div class="form-check">
+                                    <input [disabled]='disableOption' class="form-check-input" type="radio"
+                                        name="{{question.questId}}" id="answerOption1"
+                                        (click)="onAnswerSelection(question.answerOption1,question.questId)"
+                                        value="{{question.answerOption1}}"
+                                        [checked]='question.answerOption1==question.quizUserAnswer'>
+                                    <label class="form-check-label" for="answerOption1">
+                                        {{question.answerOption1}}
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input [disabled]='disableOption' class="form-check-input" type="radio"
+                                        name="{{question.questId}}" id="answerOption2"
+                                        (change)="onAnswerSelection(question.answerOption2,question.questId)"
+                                        value="{{question.answerOption2}}"
+                                        [checked]='question.answerOption2==question.quizUserAnswer'>
+                                    <label class="form-check-label" for="answerOption2">
+                                        {{question.answerOption2}}
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input [disabled]='disableOption' class="form-check-input" type="radio"
+                                        name="{{question.questId}}" id="answerOption3"
+                                        (change)="onAnswerSelection(question.answerOption3,question.questId)"
+                                        value="{{question.answerOption3}}"
+                                        [checked]='question.answerOption3==question.quizUserAnswer'>
+                                    <label class="form-check-label" for="answerOption3">
+                                        {{question.answerOption3}}
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input [disabled]='disableOption' class="form-check-input" type="radio"
+                                        name="{{question.questId}}" id="answerOption4"
+                                        (change)="onAnswerSelection(question.answerOption4,question.questId)"
+                                        value="{{question.answerOption4}}"
+                                        [checked]='question.answerOption4==question.quizUserAnswer'>
+                                    <label class="form-check-label" for="answerOption4">
+                                        {{question.answerOption4}}
+                                    </label>
+                                </div>
+
+                                <div *ngIf='question.quizCorrectAnswer != null'>
+                                    Correct Answer is: {{question.quizCorrectAnswer}}. Your Answer is
+                                    {{question.quizUserAnswer}}
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+                <div>
+                    <button type="submit" class="btn btn-info" [disabled]='disableSubmit'>Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer pb-0 pt-3">
+            <jw-pagination [items]="quizQuestList" [pageSize]=5 (changePage)="onChangePage($event)"></jw-pagination>
+        </div>
+    </div>
+  
+</div>
