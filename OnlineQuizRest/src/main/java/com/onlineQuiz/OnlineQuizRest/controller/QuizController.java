@@ -44,15 +44,12 @@ public class QuizController {
 	
 
 	@GetMapping("/quiz/{quizId}")
-	public List<Question> getAllQuestionByQuizId(@PathVariable(value="quizId") int quizId){
-		List<Question> questList = questionRepository.findByQuizId(quizId);
-		logger.info(questList.toString());
-		return questList;
+	public List<Question> getAllQuestionByQuizId(@PathVariable(value="quizId") int quizId){		
+		return questionRepository.findByQuizId(quizId);
 	}
 	
 	@PostMapping("/quiz")
-	public ResponseEntity<Question> createQuestion(@RequestBody Question question){
-	
+	public ResponseEntity<Question> createQuestion(@RequestBody Question question){	
 		return ResponseEntity.ok().body(questionRepository.save(question));
 	}
 	
@@ -69,20 +66,17 @@ public class QuizController {
 	}
 	
 	@GetMapping("/quiz/answer/{quizId}")
-	public ResponseEntity<List<Answer>> getAnswer(@PathVariable(value="quizId") int quizId){
-	
+	public ResponseEntity<List<Answer>> getAnswer(@PathVariable(value="quizId") int quizId){	
 		return ResponseEntity.ok().body(answerRepository.findAnsByQuizId(quizId));
 	}
 	
 	@GetMapping("/quiz/user/{uname}")
-	public ResponseEntity<User> getUserDetail(@PathVariable(value="uname") String userName){
-		logger.info("USERNAME ******"+userName);
+	public ResponseEntity<User> getUserDetail(@PathVariable(value="uname") String userName){	
 		return  ResponseEntity.ok().body(userRepository.findUserByUserName(userName));
 	}
 	
 	@PostMapping("/quiz/user")
-	public ResponseEntity<User> createUser(@RequestBody User user){
-		
+	public ResponseEntity<User> createUser(@RequestBody User user){		
 		return ResponseEntity.ok().body(userRepository.save(user));
 	}
 		

@@ -34,6 +34,6 @@ import { HeaderComponent } from './header/header.component';
     HttpClientModule,AppRouting,FormsModule,JwPaginationModule
   ],
   providers: [QuizServiceService,ReviewResultComponent,LoginRoutingGuard],
-  bootstrap: [IndexPageComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

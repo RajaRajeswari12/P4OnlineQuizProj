@@ -31,24 +31,15 @@ export class ReviewResultComponent implements OnInit {
   loadUserQuizAnswer(quizAnswerList: QuizAnswer[]) {
     for (let index = 0; index < quizAnswerList.length; index++) {
       this.QuizAns = quizAnswerList[index];
-      console.log(`QUIZ ANSWER LIST ${this.QuizAns.quizAnswer},${this.QuizAns.question.questId},${this.QuizAns.question.quiz.quizId}`)
       this.setQuizAnswer(this.QuizAns.quizAnswer, this.QuizAns.question.questId, this.QuizAns.question.quiz.quizId)
     }
     return this.QuestList;
   }
 
   loadResult(quizId, quizQuestList: QuizQuestion[], quizAnswerList: QuizAnswer[]): QuizQuestion[] {
-    console.log("Inside LOAD RESULT")
-
+  
     this.QuestList = quizQuestList
     this.loadUserQuizAnswer(quizAnswerList);
-
-
-    this.QuestList.forEach(function (value) {
-      console.log("Updated List");
-      console.log(value)
-    })
-
     return this.QuestList
   }
 

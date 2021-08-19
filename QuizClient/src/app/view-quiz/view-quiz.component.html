@@ -3,12 +3,12 @@
         <h2 class="card-header">ONLINE QUIZ</h2>
         <div class="card-body">
             <form (ngSubmit)="onQuizSubmit()">
-                <div *ngIf='enableResult'>
-                    You have scored {{marksScored}} out of {{TotalMarks}}
+                <div *ngIf='enableResult' style="color:teal; font-weight: bolder;">
+                    <h3>You have scored {{marksScored}} out of {{TotalMarks}}</h3>
                 </div>
 
-                <table class="table">
-                    <thead>
+                <table class="table table-striped">
+                    <thead class="thead-dark">
                         <tr>
                             <th>Question</th>
                             <th>Options</th>
@@ -62,9 +62,8 @@
                                     </label>
                                 </div>
 
-                                <div *ngIf='question.quizCorrectAnswer != null'>
-                                    Correct Answer is: {{question.quizCorrectAnswer}}. Your Answer is
-                                    {{question.quizUserAnswer}}
+                                <div *ngIf='displayResult' style="color: red; font-weight: bolder;">
+                                    Correct Answer is: {{question.quizCorrectAnswer}}
                                 </div>
 
                             </td>

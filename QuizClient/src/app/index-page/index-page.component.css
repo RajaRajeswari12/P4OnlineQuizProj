@@ -1,0 +1,7 @@
+div  {
+    height:45em; width: 60em;
+    background-image: url("src\app\images\quiz1.jpg");
+    background-color: #cccccc;
+    color:aliceblue    ;
+    text-align: center;
+  }

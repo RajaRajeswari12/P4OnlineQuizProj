@@ -6,18 +6,18 @@ select * from question;
 select * from answer;
 
 select * from user;
-
-delete from answer where ans_id = 1;
+-- delete from question;
+-- delete from answer where ans_id = 1;
 
 insert into quiz(quiz_id,quiz_name) values(1,'Java');
 
 insert into user(userid,user_name,password) values(1,'Default','12345678');
 
 insert into question(quest_id,quiz_id,quiz_question,answer_option1,answer_option2,answer_option3,answer_option4)
-values (1,1," What is the size of double variable?",'8','16','32','64');
+values (1,1,"What is the size of double variable?",'8 bit','16 bit','32 bit','64 bit');
 
 insert into question(quest_id,quiz_id,quiz_question,answer_option1,answer_option2,answer_option3,answer_option4)
-values (2,1," What is the default value of short variable?",'0.0','16','0','undefined');
+values (2,1,"What is the default value of short variable?",'0.0','16','0','undefined');
 
 insert into question(quest_id,quiz_id,quiz_question,answer_option1,answer_option2,answer_option3,answer_option4)
 values (3,1,"  Which of the following is true about public access modifier?",
@@ -37,7 +37,7 @@ insert into question(quest_id,quiz_id,quiz_question,answer_option1,answer_option
 values (5,1," What is TreeSet Interface?",
 'It is a Set implemented when we want elements in a tree based order.',
 'It is a Set implemented when we want elements in a sorted order.',
-' It is a Set implemented when we want elements in a binary tree format.',
+'It is a Set implemented when we want elements in a binary tree format.',
 'It is a Set implemented when we want elements in a hiearchical order.');
 
 insert into question(quest_id,quiz_id,quiz_question,answer_option1,answer_option2,answer_option3,answer_option4)
@@ -84,7 +84,7 @@ insert into answer(ans_id,quest_id,quiz_answer)
 values(2,2,'0.0');
 
 insert into answer(ans_id,quest_id,quiz_answer) 
-values(3,3,' Variables, methods and constructors which are declared public can be accessed by any class.');
+values(3,3,'Variables, methods and constructors which are declared public can be accessed by any class.');
 
 insert into answer(ans_id,quest_id,quiz_answer) 
 values(4,4,'Encapsulation is the technique of making the fields in a class private and providing access to the fields via public methods.');
@@ -96,7 +96,7 @@ insert into answer(ans_id,quest_id,quiz_answer)
 values(6,6,'Methods with same name but different parameters.');
 
 insert into answer(ans_id,quest_id,quiz_answer) 
-values(7,7,' Serialization is the process of writing the state of an object to a byte stream.');
+values(7,7,'Serialization is the process of writing the state of an object to a byte stream.');
 
 insert into answer(ans_id,quest_id,quiz_answer) 
 values(8,8,'Runtime polymorphism is a process in which a call to an overridden method is resolved at runtime rather than at compile-time.');

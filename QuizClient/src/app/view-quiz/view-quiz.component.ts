@@ -32,6 +32,7 @@ export class ViewQuizComponent implements OnInit {
   disableOption = false;
   disableSubmit = true;
   invalidQuizId = false;
+  displayResult = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private quizService: QuizServiceService,
     private reviewResult: ReviewResultComponent) { }
@@ -62,6 +63,7 @@ export class ViewQuizComponent implements OnInit {
 
   async onQuizSubmit() {
     await this.loadQuizAnswer(this.quizId);
+    this.displayResult = true;
     this.disableSubmit = true;
     this.disableOption = true;
     this.enableResult = true;
@@ -80,7 +82,7 @@ export class ViewQuizComponent implements OnInit {
     for (let index = 0; index < quizQuestList.length; index++) {
       this.TotalMarks++;
       this.QuizQuest = quizQuestList[index];      
-      if (this.QuizQuest.quizUserAnswer === this.QuizQuest.quizCorrectAnswer) {
+      if (this.QuizQuest.quizUserAnswer == this.QuizQuest.quizCorrectAnswer) {
         this.marksScored++;
       }
     }
